@@ -1,2 +1,27 @@
-# google-sheets-Q
-Google Sheets script to use ChatGPT in a formula. Easy as =Q(prompt)
+Introducing **Q** – the ultimate tool for empowering your Google Spreadsheets with the cutting-edge capabilities of OpenAI, all within the familiar, user-friendly environment of Google Sheets. Inspired by the legendary James Bond character known for innovation and precision, **Q** allows you to harness the power of large language models (LLMs) directly in your spreadsheets, making it easier than ever to build, test, and deploy AI-driven solutions.
+
+![](https://public-files.gumroad.com/4kn8nlgt53giq88vc0ct4fqawdva)
+
+### [Grab it for free, or buy me a coffee ☕️](https://parlant.xyz/l/Q-google-spreadsheet-function)
+
+### Why **Q**?
+
+**Q** is designed for creators, developers, and data enthusiasts who want to integrate AI seamlessly into their workflow without the steep learning curve of other platforms. Whether you’re prototyping a new idea, analyzing complex data, or automating tasks, **Q** brings the full power of OpenAI models to your fingertips in a way that’s both accessible and powerful.
+
+### Key Features
+
+- **Simple Setup with Secure API Integration**: Safely store and use your OpenAI API key within your document. With **Q**, your API key is securely bound to your spreadsheet, ensuring that your sensitive data is protected.
+
+- **Transparent and Customizable**: Access and examine the script sources to understand exactly how **Q** works. Modify it to suit your specific needs or trust its robust design out-of-the-box.
+
+- **Rapid Prototyping in Familiar Surroundings**: Unlike complex platforms like LangChain or Python-based frameworks, **Q** lets you quickly build and iterate on LLM prototypes directly within Google Sheets. No need to learn new coding languages or environments – if you can work a spreadsheet, you can work with **Q**.
+
+- **Enhanced Spreadsheet Capabilities**: Supercharge your Google Sheets with the latest OpenAI models. Whether you’re generating content, analyzing text, or automating responses, **Q** transforms your spreadsheets into a powerful AI tool, allowing for complex operations that were previously unimaginable in this environment.
+
+### Why Choose **Q** Over the Competition?
+
+Other solutions like LangChain and Python frameworks are powerful but often come with a steep learning curve and require significant setup time. **Q** stands out by being incredibly easy to use, making it accessible to a broader audience while still offering the depth needed for more advanced users. You don’t need to be a programmer to use **Q** – if you’re comfortable with Google Sheets, you’re ready to start building AI-powered solutions today.
+
+**Q** is your all-in-one solution for bringing AI into your spreadsheets. Say goodbye to complicated setups and hello to the ease and power of **Q**. Whether you’re a novice or an expert, **Q** makes AI integration as simple as working with your favorite spreadsheet. Unlock the potential of your data with the magic of **Q**.
+
+Get started with **Q** today on Gumroad, and take your Google Sheets to the next level!
