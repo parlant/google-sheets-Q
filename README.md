@@ -18,6 +18,8 @@ Introducing **Q** – the ultimate tool for empowering your Google Spreadsheets 
 
 - **Enhanced Spreadsheet Capabilities**: Supercharge your Google Sheets with the latest OpenAI models. Whether you’re generating content, analyzing text, or automating responses, **Q** transforms your spreadsheets into a powerful AI tool, allowing for complex operations that were previously unimaginable in this environment.
 
+- **Budget-Friendly Caching**: Q intelligently caches responses from OpenAI for identical requests for at least 6 hours. This means you won't be charged multiple times for the same query, making it a cost-effective solution for frequent or repeated tasks. By reducing unnecessary API calls, Q helps you manage your budget while still delivering powerful AI-driven insights.
+
 ### Why Choose **Q** Over the Competition?
 
 Other solutions like LangChain and Python frameworks are powerful but often come with a steep learning curve and require significant setup time. **Q** stands out by being incredibly easy to use, making it accessible to a broader audience while still offering the depth needed for more advanced users. You don’t need to be a programmer to use **Q** – if you’re comfortable with Google Sheets, you’re ready to start building AI-powered solutions today.
