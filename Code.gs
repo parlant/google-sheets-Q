@@ -58,7 +58,7 @@ function showApiKeyPrompt(prompt) {
 function Q(prompt, system_prompt, model, temperature, max_tokens, cache_timeout) {
   const api_key = PropertiesService.getDocumentProperties().getProperty('OPENAI_API_KEY');
   if (!api_key) {
-    throw new Error('OPENAI_API_KEY is not set, please in the menu "Extensions" > "Q" > "Set OpenAI API key"');
+    throw new Error('OPENAI_API_KEY is not set, please set it using the menu "Extensions" > "Q" > "Set OpenAI API key"');
   }
   if (model === undefined || model === null) {
     model = OPENAI_DEFAULT_MODEL;
