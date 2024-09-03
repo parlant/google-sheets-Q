@@ -2,7 +2,7 @@ Introducing **Q** – the ultimate tool for empowering your Google Spreadsheets 
 
 ![](https://public-files.gumroad.com/4kn8nlgt53giq88vc0ct4fqawdva)
 
-### [Grab it for free, or buy me a coffee ☕️](https://parlant.xyz/l/Q-google-spreadsheet-function)
+### [Grab it for free, or buy me a coffee ☕️](https://parlant.xyz/l/google-sheets-chatgpt-function)
 
 ### Why **Q**?
 
@@ -32,7 +32,7 @@ Get started with Q today, and take your Google Sheets to the next level!
 
 1. Set Up Your OpenAI API Key:
 
-    * Obtain a copy of the template document from [https://parlant.xyz/l/Q-google-spreadsheet-function](https://parlant.xyz/l/Q-google-spreadsheet-function)
+    * Obtain a copy of the template document from [https://parlant.xyz/l/google-sheets-chatgpt-function](https://parlant.xyz/l/google-sheets-chatgpt-function)
     * In your copied Google Sheet, go to "Extensions" > "Q ..." > "Set OpenAI API key".
     * Enter your OpenAI API key in the prompt that appears. This key will be securely stored on the document and used for all your Q queries.
 
