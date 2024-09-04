@@ -1,6 +1,6 @@
 /**
  * Q – Google Spreadsheet Function
- * https://parlant.gumroad.com/l/Q-google-spreadsheet-function
+ * https://parlant.xyz/l/google-sheets-chatgpt-function
  * 
  * MIT LICENSE
  * 
