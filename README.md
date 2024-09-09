@@ -1,6 +1,6 @@
 Introducing **Q** – the ultimate tool for empowering your Google Spreadsheets with the cutting-edge capabilities of OpenAI, all within the familiar, user-friendly environment of Google Sheets. Inspired by the legendary James Bond character known for innovation and precision, **Q** allows you to harness the power of large language models (LLMs) directly in your spreadsheets, making it easier than ever to build, test, and deploy AI-driven solutions.
 
-![](https://public-files.gumroad.com/4kn8nlgt53giq88vc0ct4fqawdva)
+![](https://public-files.gumroad.com/4htgsyh9r632gbbq57sr19j7et6g)
 
 ### [Grab it for free, or buy me a coffee ☕️](https://parlant.xyz/l/google-sheets-chatgpt-function)
 
