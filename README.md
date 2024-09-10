@@ -8,6 +8,8 @@ Introducing **Q** – the ultimate tool for empowering your Google Spreadsheets 
 
 **Q** is designed for creators, developers, and data enthusiasts who want to integrate AI seamlessly into their workflow without the steep learning curve of other platforms. Whether you’re prototyping a new idea, analyzing complex data, or automating tasks, **Q** brings the full power of OpenAI models to your fingertips in a way that’s both accessible and powerful.
 
+![2024-09-10 Screenrecording, short, 1012x](https://github.com/user-attachments/assets/9f3e8d8a-98b0-4e16-801c-13bf94cd5f44)
+
 ### Key Features
 
 - **Simple Setup with Secure API Integration**: Safely store and use your OpenAI API key within your document. With **Q**, your API key is securely bound to your spreadsheet, ensuring that your sensitive data is protected.
