@@ -1,5 +1,5 @@
 /**
- * Q – Google Spreadsheet Function
+ * Q – AI Function for Google Sheets™
  * https://parlant.xyz/l/google-sheets-chatgpt-function
  * 
  * MIT LICENSE
@@ -13,7 +13,12 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const OPENAI_DEFAULT_MODEL = 'gpt-4o';
+const OPENAI_PREFERRED_MODELS = [
+  'gpt-4o',
+  'gpt-4o-mini',
+  'gpt-4-turbo',
+  'gpt-3.5-turbo',
+];
 const OPENAI_DEFAULT_SYSTEM = 'You are a helpful assistant.';
 const OPENAI_DEFAULT_TEMPERATURE = 0.7;
 const OPENAI_MAX_TOKENS = 2048;
@@ -40,7 +45,32 @@ function showApiKeyPrompt(prompt) {
   if (response.getSelectedButton() == ui.Button.OK) {
     const documentProperties = PropertiesService.getDocumentProperties();
     documentProperties.setProperty('OPENAI_API_KEY', response.getResponseText());
+    setDefaultModel(true);
   }
+}
+
+function getDefaultModel() {
+  const documentProperties = PropertiesService.getDocumentProperties();
+  return documentProperties.getProperty('OPENAI_DEFAULT_MODEL');
+}
+
+function setDefaultModel( ) {
+  const documentProperties = PropertiesService.getDocumentProperties();
+  const api_key = documentProperties.getProperty('OPENAI_API_KEY');
+  if (!api_key) {
+    throw new Error('OPENAI_API_KEY is not set, please set it using the menu "Extensions" > "Q" > "Set OpenAI API key"');
+  }
+  const url = 'https://api.openai.com/v1/models';
+  const response = UrlFetchApp.fetch(url, {
+    method: 'get',
+    contentType: 'application/json',
+    headers: { Authorization: `Bearer ${api_key}` }
+  });
+  const result = JSON.parse(response.getContentText());
+  const availableModels = result.data.map(e => e.id);
+  const preferredDefaultModel = OPENAI_PREFERRED_MODELS.find(preferredModel => availableModels.find(model => preferredModel == model));
+  documentProperties.setProperty('OPENAI_DEFAULT_MODEL', preferredDefaultModel);
+  return preferredDefaultModel;
 }
 
 /**
@@ -61,7 +91,10 @@ function Q(prompt, system_prompt, model, temperature, max_tokens, cache_timeout)
     throw new Error('OPENAI_API_KEY is not set, please set it using the menu "Extensions" > "Q" > "Set OpenAI API key"');
   }
   if (model === undefined || model === null) {
-    model = OPENAI_DEFAULT_MODEL;
+    model = getDefaultModel();
+    if (!model) {
+      model = setDefaultModel();
+    }
   }
   if (system_prompt === undefined || system_prompt === null) {
     system_prompt = OPENAI_DEFAULT_SYSTEM;
@@ -122,4 +155,11 @@ function test_Q() {
   const answer = Q(`How are you today? Your UUID for today is: ${Utilities.getUuid()}`, "You are a helpful assistant, always include your UUID if I send you one.");
   console.log(answer);
   return answer;
+}
+
+function test_setDefaultModel() {
+  setDefaultModel();
+  const documentProperties = PropertiesService.getDocumentProperties();
+  const defaultModel = documentProperties.getProperty('OPENAI_DEFAULT_MODEL');
+  console.log(`OPENAI_DEFAULT_MODEL: ${defaultModel}`);
 }
