@@ -19,6 +19,7 @@ const OPENAI_PREFERRED_MODELS = [
   'gpt-4-turbo',
   'gpt-3.5-turbo',
 ];
+const OPENAI_REASONING_MODEL_REGEX = /^o1-(mini|preview).*/;
 const OPENAI_DEFAULT_SYSTEM = 'You are a helpful assistant.';
 const OPENAI_DEFAULT_TEMPERATURE = 0.7;
 const OPENAI_MAX_TOKENS = 2048;
@@ -99,6 +100,7 @@ function Q(prompt, system_prompt, model, temperature, max_tokens, cache_timeout)
   if (system_prompt === undefined || system_prompt === null) {
     system_prompt = OPENAI_DEFAULT_SYSTEM;
   }
+  let is_reasoning_model = !!model.match(OPENAI_REASONING_MODEL_REGEX);
   if (temperature === undefined || temperature === null) {
     temperature = OPENAI_DEFAULT_TEMPERATURE;
   }
@@ -127,12 +129,21 @@ function Q(prompt, system_prompt, model, temperature, max_tokens, cache_timeout)
     return cachedAnswer;
   }
   const url = 'https://api.openai.com/v1/chat/completions';
+  let messages = [];
+  if (!is_reasoning_model) {
+    messages.push({"role": "system", "content": system_prompt});
+  }
+  messages.push({"role": "user", "content": prompt});
   const data = {
     model: model,
-    messages: [{"role": "system", "content": system_prompt}, {"role": "user", "content": prompt}],
-    max_tokens: max_tokens,
-    temperature: temperature
+    messages: messages,
   };
+  if (is_reasoning_model) {
+    data['max_completion_tokens'] = max_tokens;
+  } else {
+    data['max_tokens'] = max_tokens;
+    data['temperature'] = temperature;
+  }
   const response = UrlFetchApp.fetch(url, {
     method: 'post',
     contentType: 'application/json',
@@ -162,4 +173,10 @@ function test_setDefaultModel() {
   const documentProperties = PropertiesService.getDocumentProperties();
   const defaultModel = documentProperties.getProperty('OPENAI_DEFAULT_MODEL');
   console.log(`OPENAI_DEFAULT_MODEL: ${defaultModel}`);
+}
+
+function test_reasoningModel() {
+  const answer = Q(`How are you today? Your UUID for today is: ${Utilities.getUuid()}`, "You are a helpful assistant, always include your UUID if I send you one.", "o1-mini");
+  console.log(answer);
+  return answer;
 }
